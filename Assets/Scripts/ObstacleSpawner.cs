@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
+
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject obstaclePrefab;
-    int obstacleCount = 0;
     public float obstacleSpawnTime = 5f;
 
     void Start()
@@ -16,11 +15,10 @@ public class ObstacleSpawner : MonoBehaviour
 
     IEnumerator spawnObstacleRoutine()
     {
-        while (obstacleCount < 5 )
+        while (true)
         {
             yield return new WaitForSeconds(obstacleSpawnTime);
-            Instantiate(obstaclePrefab, transform.position, quaternion.identity);
-            obstacleCount++;
+            Instantiate(obstaclePrefab, transform.position, Random.rotation);
         }
     }
 
