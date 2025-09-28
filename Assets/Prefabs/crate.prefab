@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2731149426978136004}
   m_Layer: 0
   m_Name: crate
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,19 +163,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8292659180503196469}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &6239286752451351707
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4465974323791754171}
-  m_Material: {fileID: 13400000, guid: 2bd8f9477d7605c4eaecbc45e31ef607, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0561488, y: 1.0503523, z: 1.0521384}
-  m_Center: {x: 0.001455456, y: 0.52464235, z: 0.000893116}
 --- !u!136 &1217049401067948540
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -189,4 +176,17 @@ CapsuleCollider:
   m_Radius: 0.68
   m_Height: 1.0503523
   m_Direction: 1
+  m_Center: {x: 0.001455456, y: 0.52464235, z: 0.000893116}
+--- !u!65 &6239286752451351707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465974323791754171}
+  m_Material: {fileID: 13400000, guid: 2bd8f9477d7605c4eaecbc45e31ef607, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0561488, y: 1.0503523, z: 1.0521384}
   m_Center: {x: 0.001455456, y: 0.52464235, z: 0.000893116}
