@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] GameObject chunkPrefab;
-    [SerializeField] int startChunkAmount = 12;
     [SerializeField] Transform chunkParent;
+    public CameraController cameraController;
+    [Header("Level Settings")]
+    [Tooltip("Do not  change the chunk length unless chunk prefab size reflects change")]
+    [SerializeField] int startChunkAmount = 12;
     public float chunkLength = 10f;
     [SerializeField] float moveSpeed = 8f;
     [SerializeField] float minMoveSpeed = 2f;
-    public CameraController cameraController;
+    
 
     //GameObject[] chunks = new GameObject[12];
     List<GameObject> chunks = new List<GameObject>();

@@ -11,15 +11,22 @@ public class CameraController : MonoBehaviour
     public float MinFOV = 60f;
     public float zoomDuration = 1f;
     public float zoomSpeed = 5f;
+    public ParticleSystem speedUpParticle;
 
     void Awake()
     {
         cinemachineCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
-    public void changeCameraFOV(float speedAmount) {
+    public void changeCameraFOV(float speedAmount)
+    {
         StopAllCoroutines();
         StartCoroutine(ChangeFOVRoutine(speedAmount));
+
+        if (speedAmount > 0)
+        {
+            speedUpParticle.Play();
+        }
     }
 
     //most common pattern
