@@ -9,6 +9,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] GameObject chunkPrefab;
     [SerializeField] Transform chunkParent;
     public CameraController cameraController;
+    public ScoreManager scoreManager;
     [Header("Level Settings")]
     [Tooltip("Do not  change the chunk length unless chunk prefab size reflects change")]
     [SerializeField] int startChunkAmount = 12;
@@ -60,7 +61,7 @@ public class LevelGenerator : MonoBehaviour
         chunks.Add(newChunkGO);
 
         Chunk newChunk = newChunkGO.GetComponent<Chunk>();
-        newChunk.Init(this);
+        newChunk.Init(this, scoreManager);
     }
 
     float CalculatePositionZ(){
