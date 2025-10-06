@@ -7,9 +7,9 @@ public class Apple : Pickups
     LevelGenerator levelGenerator;
     public float powerUpSpeed = 3f;
 
-    void Start()
+    public void Init( LevelGenerator levelGenerator)
     {
-        levelGenerator = FindFirstObjectByType<LevelGenerator>();
+        this.levelGenerator = levelGenerator;
     }
 
     protected override void OnPickup()

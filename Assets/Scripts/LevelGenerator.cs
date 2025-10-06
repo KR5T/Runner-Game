@@ -55,9 +55,12 @@ public class LevelGenerator : MonoBehaviour
     {
         float spawnPositionZ = CalculatePositionZ();
         Vector3 chunkSpawnPos = new Vector3(transform.position.x, transform.position.y, spawnPositionZ);
-        GameObject newChunk = Instantiate(chunkPrefab, chunkSpawnPos, Quaternion.identity, chunkParent);
+        GameObject newChunkGO = Instantiate(chunkPrefab, chunkSpawnPos, Quaternion.identity, chunkParent);
 
-        chunks.Add(newChunk);
+        chunks.Add(newChunkGO);
+
+        Chunk newChunk = newChunkGO.GetComponent<Chunk>();
+        newChunk.Init(this);
     }
 
     float CalculatePositionZ(){
