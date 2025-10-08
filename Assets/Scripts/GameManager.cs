@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour
     public TMP_Text tmp;
     public GameObject gameOverText;
     public float startTime = 30;
+
     float durationTime;
     bool gameOver = false;
+
+    // public bool GameOver{get { return gameOver; }}
+    public bool GameOver => gameOver;
 
     void Start()
     {
@@ -22,7 +26,7 @@ public class GameManager : MonoBehaviour
         DecreaseTime();
     }
 
-    void GameOver()
+    void GameOverMethod()
     {
         gameOver = true;
         gameOverText.SetActive(true);
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
         tmp.text = durationTime.ToString("F1");
         if (durationTime < 0)
         {
-            GameOver();
+            GameOverMethod();
         }
     }
 

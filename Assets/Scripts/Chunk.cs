@@ -9,6 +9,7 @@ public class Chunk : MonoBehaviour
     public GameObject coinPrefab;
     public float appleSpawnChance = .3f;
     public float CoinSpawnChance = .5f;
+    public float fenceSpawnChance = .6f;
     public float[] lane = { -2.5f, 0, 2.5f };
 
     List<int> availableLane = new List<int> { 0, 1, 2 };
@@ -33,6 +34,9 @@ public class Chunk : MonoBehaviour
     {
         int fancesToSpawn = Random.Range(0, lane.Length);
 
+        if (Random.value < fenceSpawnChance)
+            return;
+            
         for (int i = 0; i < fancesToSpawn; i++)
         {
             if (availableLane.Count <= 0) { break; }
@@ -61,7 +65,7 @@ public class Chunk : MonoBehaviour
         if (availableLane.Count <= 0 || Random.value > CoinSpawnChance) { return; }
 
         int selectedLane = SelectLane();
-        int coinCount = Random.Range(3, 5);
+        int coinCount = Random.Range(3, 8);
         Vector3 posZ = new Vector3(0,0, transform.position.z);
 
         for (int i = 0; i < coinCount; i++)
