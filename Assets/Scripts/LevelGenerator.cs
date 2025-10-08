@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] GameObject chunkPrefab;
+    public GameObject checkpointPrefab;
+    [SerializeField] GameObject[] chunkArray;
     [SerializeField] Transform chunkParent;
     public CameraController cameraController;
     public ScoreManager scoreManager;
@@ -16,7 +16,7 @@ public class LevelGenerator : MonoBehaviour
     public float chunkLength = 10f;
     [SerializeField] float moveSpeed = 8f;
     [SerializeField] float minMoveSpeed = 2f;
-    
+    int chunkSpawnCount = 1;
 
     //GameObject[] chunks = new GameObject[12];
     List<GameObject> chunks = new List<GameObject>();
@@ -54,14 +54,27 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnChunk()
     {
+
         float spawnPositionZ = CalculatePositionZ();
         Vector3 chunkSpawnPos = new Vector3(transform.position.x, transform.position.y, spawnPositionZ);
+        
+        GameObject chunkPrefab;
+        if (chunkSpawnCount % 8 == 0)
+        {
+            chunkPrefab = checkpointPrefab;
+        }
+        else
+        {
+            chunkPrefab = chunkArray[Random.Range(0, chunkArray.Length)];
+        }
+
         GameObject newChunkGO = Instantiate(chunkPrefab, chunkSpawnPos, Quaternion.identity, chunkParent);
 
         chunks.Add(newChunkGO);
 
         Chunk newChunk = newChunkGO.GetComponent<Chunk>();
         newChunk.Init(this, scoreManager);
+        chunkSpawnCount++;
     }
 
     float CalculatePositionZ(){
