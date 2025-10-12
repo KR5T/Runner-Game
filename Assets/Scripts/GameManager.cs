@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public float startTime = 30;
 
-    float durationTime;
+    public float durationTime;
     bool gameOver = false;
 
     // public bool GameOver{get { return gameOver; }}
@@ -36,12 +36,19 @@ public class GameManager : MonoBehaviour
     void DecreaseTime()
     {
         if (gameOver == true) return;
+
         durationTime -= Time.deltaTime;
         tmp.text = durationTime.ToString("F1");
+        
         if (durationTime < 0)
         {
             GameOverMethod();
         }
+    }
+
+    public void IncreaseTime()
+    {
+        durationTime += 10;
     }
 
 }

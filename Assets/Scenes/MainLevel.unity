@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554d4ffb37255074da520c4f095000ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 913202805}
   scoreText: {fileID: 162355434}
 --- !u!4 &913202803
 Transform:
@@ -883,6 +884,7 @@ MonoBehaviour:
   tmp: {fileID: 1031903573}
   gameOverText: {fileID: 2028627092}
   startTime: 120
+  durationTime: 0
 --- !u!1 &924045607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1484,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280533148}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -1557,7 +1559,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1610,7 +1612,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6502,8 +6504,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fc8829665a89143b3ba7a997123380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkPrefab: {fileID: 5133909719893280240, guid: fc64d1525cd3ca84f998e7558a405f93,
+  checkpointPrefab: {fileID: 5133909719893280240, guid: 9eebb282988352a488aea6c07fac82b6,
     type: 3}
+  chunkArray:
+  - {fileID: 5133909719893280240, guid: 3ea5cb2f47b3df2429c2f2df9cd29e39, type: 3}
+  - {fileID: 5133909719893280240, guid: 539932f1e97ee7145ab167516a14c7b8, type: 3}
+  - {fileID: 5133909719893280240, guid: 18c7cccf290bebc43a250487b315325c, type: 3}
+  - {fileID: 5133909719893280240, guid: fc64d1525cd3ca84f998e7558a405f93, type: 3}
+  - {fileID: 5133909719893280240, guid: 3ea5cb2f47b3df2429c2f2df9cd29e39, type: 3}
+  - {fileID: 5133909719893280240, guid: 3ea5cb2f47b3df2429c2f2df9cd29e39, type: 3}
   chunkParent: {fileID: 0}
   cameraController: {fileID: 1181978961}
   scoreManager: {fileID: 913202802}
