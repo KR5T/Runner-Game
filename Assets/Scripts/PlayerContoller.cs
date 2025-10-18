@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerContoller : MonoBehaviour
 {
+    public Animator animator;
     Rigidbody rigby;
     public Vector2 movement;
     public float moveInputSpeed = 5f;
@@ -20,13 +21,13 @@ public class PlayerContoller : MonoBehaviour
 
     void Start()
     {
-
         rigby = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         IsJetpacking();
+        animator.SetBool("isJetpacking", isJetpacking);
     }
 
     void FixedUpdate()
@@ -56,14 +57,15 @@ public class PlayerContoller : MonoBehaviour
         {
             Debug.Log("jetpack ateşlendi");
             verticalVelocity += jetpackForce * Time.deltaTime;
+            // vertical velocity is positivie while !isJetpacking. so gravity force decreasing from positive value. therefore character is in air limit for a while. fix it!!!(done)
         }
         else
         {
             Debug.Log("jetpack söndü");
-            verticalVelocity = 0;
             verticalVelocity -= gravityForce * Time.deltaTime;
         }
-        //verticalVelocity = Mathf.Clamp(verticalVelocity, -gravityForce, jetpackForce * 2f);
+
+        verticalVelocity = Mathf.Clamp(verticalVelocity, -gravityForce, jetpackForce/4f);
         
         newPosition.y += verticalVelocity * Time.deltaTime;
         newPosition.y = Mathf.Clamp(newPosition.y, groundY, yClamp);
