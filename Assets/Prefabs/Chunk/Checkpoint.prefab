@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 5565918558247567174}
   m_Layer: 0
   m_Name: Checkpoint
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,6 +646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coping_Wall_Bldg_06 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8c04aefe5b1d764c9831e09f859fe37,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8c04aefe5b1d764c9831e09f859fe37, type: 3}
@@ -1240,6 +1245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coping_Wall_Bldg_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8c04aefe5b1d764c9831e09f859fe37,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8c04aefe5b1d764c9831e09f859fe37, type: 3}

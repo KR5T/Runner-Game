@@ -771,6 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45b9e122a61b924da075de0686de392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 159699827}
   movement: {x: 0, y: 0}
   moveInputSpeed: 5
   xClamp: 4.21

@@ -13,6 +13,7 @@ public class PlayerContoller : MonoBehaviour
     public float zClamp = 3f;
     [Header("Jetpack")]
     private bool isJetpacking = false;
+    private bool isGrounded = true;
     public float jetpackForce = 5f;
     public float gravityForce = 10f;
     public float verticalVelocity;
@@ -27,7 +28,10 @@ public class PlayerContoller : MonoBehaviour
     void Update()
     {
         IsJetpacking();
-        animator.SetBool("isJetpacking", isJetpacking);
+        //buraya bak
+        animator.SetBool("isJetpacking", !isGrounded);
+        
+            
     }
 
     void FixedUpdate()
@@ -43,6 +47,15 @@ public class PlayerContoller : MonoBehaviour
     void IsJetpacking()
     {
         isJetpacking = movement.y > 0.5f;
+        if (transform.position.y > 0)
+        {
+            isGrounded = false;
+        }
+        else
+        {
+            isGrounded = true;
+        }
+        
     }
 
     private void HandleMovement()
@@ -55,27 +68,25 @@ public class PlayerContoller : MonoBehaviour
 
         if (isJetpacking)
         {
-            Debug.Log("jetpack ateşlendi");
             verticalVelocity += jetpackForce * Time.deltaTime;
             // vertical velocity is positivie while !isJetpacking. so gravity force decreasing from positive value. therefore character is in air limit for a while. fix it!!!(done)
         }
         else
         {
-            Debug.Log("jetpack söndü");
             verticalVelocity -= gravityForce * Time.deltaTime;
         }
 
-        verticalVelocity = Mathf.Clamp(verticalVelocity, -gravityForce, jetpackForce/4f);
-        
+        verticalVelocity = Mathf.Clamp(verticalVelocity, -gravityForce, jetpackForce / 4f);
+
         newPosition.y += verticalVelocity * Time.deltaTime;
         newPosition.y = Mathf.Clamp(newPosition.y, groundY, yClamp);
-        
+
         if (newPosition.y <= groundY)
         {
             newPosition.y = groundY;
             verticalVelocity = 0f;
         }
-        
+
         //UnityDocs: Rigidbody.MovePosition
         rigby.MovePosition(newPosition);
     }
