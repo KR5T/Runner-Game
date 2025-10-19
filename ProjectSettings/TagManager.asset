@@ -7,7 +7,6 @@ TagManager:
   - Pickup
   - Obstacle
   - Checkpoint
-  - Ground
   layers:
   - Default
   - TransparentFX

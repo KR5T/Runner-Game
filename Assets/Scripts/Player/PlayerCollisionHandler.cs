@@ -22,11 +22,19 @@ public class PlayerCollisionHandler : MonoBehaviour
         levelGenerator = FindFirstObjectByType<LevelGenerator>();
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision collision)
     {
         if (cooldownTimer < collisionCooldown) return;
         levelGenerator.ChangeChunkMoveSpeed(hitSpeedChanger);
         animator.SetTrigger(hitString);
         cooldownTimer = 0;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            animator.SetTrigger(hitString);
+        }
     }
 }
