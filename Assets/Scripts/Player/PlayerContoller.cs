@@ -19,19 +19,20 @@ public class PlayerContoller : MonoBehaviour
     public float verticalVelocity;
     private float groundY = 0f;
     public float yClamp = 10f;
+    [Header("Particles")]
+    public ParticleSystem smokeRight;
+    public ParticleSystem smokeLeft;
 
     void Start()
     {
         rigby = GetComponent<Rigidbody>();
+        //StopParticles();
     }
 
     void Update()
     {
         IsJetpacking();
-        //buraya bak
         animator.SetBool("isJetpacking", !isGrounded);
-        
-            
     }
 
     void FixedUpdate()
@@ -46,7 +47,10 @@ public class PlayerContoller : MonoBehaviour
 
     void IsJetpacking()
     {
-        isJetpacking = movement.y > 0.5f;
+        isJetpacking = movement.y > 0;
+        if (isJetpacking) { PlayParticles(); }
+        else { StopParticles(); }
+
         if (transform.position.y > 0)
         {
             isGrounded = false;
@@ -69,7 +73,6 @@ public class PlayerContoller : MonoBehaviour
         if (isJetpacking)
         {
             verticalVelocity += jetpackForce * Time.deltaTime;
-            // vertical velocity is positivie while !isJetpacking. so gravity force decreasing from positive value. therefore character is in air limit for a while. fix it!!!(done)
         }
         else
         {
@@ -89,5 +92,17 @@ public class PlayerContoller : MonoBehaviour
 
         //UnityDocs: Rigidbody.MovePosition
         rigby.MovePosition(newPosition);
+    }
+
+    void PlayParticles()
+    {
+        smokeRight.Play();
+        smokeLeft.Play();    
+    }
+    
+    void StopParticles()
+    {
+        smokeRight.Stop();
+        smokeLeft.Stop();
     }
 }
