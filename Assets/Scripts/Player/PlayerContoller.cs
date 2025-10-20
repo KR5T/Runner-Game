@@ -13,6 +13,7 @@ public class PlayerContoller : MonoBehaviour
     public float zClamp = 3f;
     [Header("Jetpack")]
     private bool isJetpacking = false;
+    private bool isDowning = false;
     private bool isGrounded = true;
     public float jetpackForce = 5f;
     public float gravityForce = 10f;
@@ -48,6 +49,8 @@ public class PlayerContoller : MonoBehaviour
     void IsJetpacking()
     {
         isJetpacking = movement.y > 0;
+        isDowning = movement.y < 0;
+
         if (isJetpacking) { PlayParticles(); }
         else { StopParticles(); }
 
@@ -73,6 +76,10 @@ public class PlayerContoller : MonoBehaviour
         if (isJetpacking)
         {
             verticalVelocity += jetpackForce * Time.deltaTime;
+        }
+        else if (isDowning)
+        {
+            verticalVelocity -= gravityForce * 3f * Time.deltaTime;
         }
         else
         {
