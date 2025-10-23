@@ -16,6 +16,4 @@ public class Apple : Pickups
     {
         levelGenerator.ChangeChunkMoveSpeed(powerUpSpeed);
     }
-
-    
 }
