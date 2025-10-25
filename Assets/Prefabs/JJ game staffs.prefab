@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 9013182373733802240}
   - component: {fileID: 4466347642764093246}
   - component: {fileID: 4896287436033900475}
+  - component: {fileID: -6562982162765154831}
   m_Layer: 0
   m_Name: JJ game staffs
   m_TagString: Obstacle
@@ -344,6 +345,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 8417997902256268640}
+--- !u!114 &-6562982162765154831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8529414387826916282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd8dde887a128d49b14ea50b277bcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0, z: 0}
+  movementVector: {x: 0, y: 3, z: 0}
+  movementFactor: 1
+  period: 2
 --- !u!1001 &8508027947753794464
 PrefabInstance:
   m_ObjectHideFlags: 0
