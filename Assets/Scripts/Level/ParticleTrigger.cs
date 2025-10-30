@@ -9,7 +9,6 @@ public class ParticleTrigger : MonoBehaviour
     {
         if (other.CompareTag(playerString))
         {
-            Debug.Log("Player trigger’a girdi");
             particle.Play();
         }
     }

@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    LevelGenerator levelGenerator;
     public TMP_Text tmp;
     public GameObject gameOverText;
     public float startTime = 30;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         durationTime = startTime;
+        levelGenerator = FindAnyObjectByType<LevelGenerator>();
     }
 
     void Update()
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         gameOverText.SetActive(true);
         Time.timeScale = .1f;
+        Invoke("GameOverMenu", .5f); 
     }
 
     void DecreaseTime()
@@ -40,7 +44,7 @@ public class GameManager : MonoBehaviour
         durationTime -= Time.deltaTime;
         tmp.text = durationTime.ToString("F1");
         
-        if (durationTime < 0)
+        if (durationTime < 0 || levelGenerator.moveSpeed < 6)
         {
             GameOverMethod();
         }
@@ -51,4 +55,8 @@ public class GameManager : MonoBehaviour
         durationTime += 10;
     }
 
+    private void GameOverMenu()
+    {
+        SceneManager.LoadScene("GameOverMenu");
+    }
 }
