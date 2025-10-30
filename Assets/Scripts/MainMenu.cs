@@ -6,12 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1, LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     public void ReloadLevel(){
-        Time.timeScale = 1f; //temp solition. there is gonna be singleton for this
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex-1;
-        SceneManager.LoadScene(currentSceneIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(currentSceneIndex);
     }
     public void GoToMainMenu(){
         SceneManager.LoadScene("MainMenu");
