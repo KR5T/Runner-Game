@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
     [Tooltip("Do not  change the chunk length unless chunk prefab size reflects change")]
     [SerializeField] int startChunkAmount = 12;
     public float chunkLength = 10f;
-    public float moveSpeed = 8f;
+    [SerializeField] float moveSpeed = 8f;
     [SerializeField] float minMoveSpeed = 2f;
     public int chunkSpawnCount = 1;
 
